@@ -1,0 +1,35 @@
+{
+  "name": "express_code_structure",
+  "version": "2.0.0",
+  "description": "Scaffolding explaining a method for organizing files in an express.js web application project",
+  "scripts": {
+    "test": "./bin/test.sh",
+    "start": "./app/server.js | bistre",
+    "lint": "./bin/lint.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/focusaurus/express_code_structure.git"
+  },
+  "keywords": [
+    "express.js",
+    "scaffolding"
+  ],
+  "author": "Peter Lyons <pete@peterlyons.com> (http://peterlyons.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/focusaurus/express_code_structure/issues"
+  },
+  "dependencies": {
+    "bole": "2.0.0",
+    "express": "4.11.0",
+    "jade": "1.9.1",
+    "passport": "^0.3.0"
+  },
+  "devDependencies": {
+    "bistre": "1.0.1",
+    "eslint": "0.12.0",
+    "supertest": "0.15.0",
+    "tape": "3.2.0"
+  }
+}
