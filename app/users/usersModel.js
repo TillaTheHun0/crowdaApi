@@ -1,4 +1,3 @@
-var Firebase = require('firebase');
 var baseRef = require("../config").firebase;
 
 var ref = baseRef.child("users");

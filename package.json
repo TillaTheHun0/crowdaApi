@@ -4,7 +4,7 @@
   "description": "Scaffolding explaining a method for organizing files in an express.js web application project",
   "scripts": {
     "test": "./bin/test.sh",
-    "start": "./app/server.js | bistre",
+    "start": "./app/server.js",
     "lint": "./bin/lint.sh"
   },
   "repository": {
@@ -21,10 +21,17 @@
     "url": "https://github.com/focusaurus/express_code_structure/issues"
   },
   "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.0",
     "bole": "2.0.0",
+    "connect-flash": "^0.1.1",
     "express": "4.11.0",
+    "express-session": "^1.11.3",
+    "firebase-token-generator": "^2.0.0",
     "jade": "1.9.1",
-    "passport": "^0.3.0"
+    "morgan": "^1.6.1",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "bistre": "1.0.1",

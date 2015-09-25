@@ -1,7 +1,7 @@
 var config = module.exports;
 var PRODUCTION = process.env.NODE_ENV === "production";
 var Firebase = require('firebase');
-var baseRef = new Firebase("https://crowda.firebaseio.com/");
+var admin = new Firebase("https://crowda.firebaseio.com/");
 
 config.express = {
   port: process.env.EXPRESS_PORT || 3000,
@@ -15,8 +15,14 @@ config.mongodb = {
 };
 */
 
+//authenticate firebase admin
+admin.authWithCustomToken("IcLVcWUkQJqrmhr28FdoiBsjCew23LQ6Dn4WsSfQ", function(error, authData){
+  if(error){
+    console.log("authentication failed");
+  }
+})
 //firebase base URL
-config.firebase = baseRef;
+config.firebase = admin;
 
 if (PRODUCTION) {
   //for example
