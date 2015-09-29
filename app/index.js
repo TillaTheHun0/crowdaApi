@@ -8,6 +8,12 @@ app.use(bodyParser()); // get information from html forms
 app.use(passport.initialize());
 app.use(passport.session());
 app.set("views", __dirname);
+app.use(function(req,res,next){
+	res.header("Access-Control-Allow-Origin", "http://localhost:8100");
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+	next();
+})
 //use whatever templating system(s) you like
 app.set("view engine", "jade");
 

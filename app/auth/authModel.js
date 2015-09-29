@@ -14,7 +14,7 @@ passport.use(new LocalStrategy(
 			}
 			validPassword(password, snapshot.val().hash, function(err, valid){
 				if(err){
-					return callback(null, false, {message: 'Failure authenticatin password'});
+					return callback(null, false, {message: 'Failure authenticating password'});
 				}
 				if(!valid){
 					return callback(null, false, {message: 'Incorrect Password'});
@@ -26,16 +26,34 @@ passport.use(new LocalStrategy(
 	}
 ));
 
-function createUser(username, email, password, provider, done){
-	//check if username/email is already taken
-	generateHash(password, function(hash){
-		ref.child(username).set(
-			{hash: hash, provider: provider, email: email}, 
-			done
-		);
+function createUser(username, email, password, provider, next){
+	ref.child(username).once('value', function(snapshot){
+		if(snapshot.val()){//username taken
+			next({error: "Username already taken"});
+		}
+		else {
+			admin.child('email_lookup').child(escapeEmail(email)).once('value', function(snapshot){
+				if(snapshot.val()){//email taken
+					next({error: "Email is taken"});
+				}
+				else{
+					generateHash(password, function(hash){
+						ref.child(username).set(
+							{hash: hash, provider: provider, email: email},
+							function(){//update email lookup
+								admin.child('email_lookup').child(escapeEmail(email)).set(username, next(null));	
+							}
+						);
+					});
+				}
+			})
+		}
 	});
 };
 
+/**
+ * Utility Methods
+ */
 function validPassword(password, hash, done){
 	bcrypt.compare(password, hash, function(err, res){
 		if(err){
@@ -54,6 +72,10 @@ function generateHash(password, done){
 		})
 	});
 };
+
+function escapeEmail(email){
+	return email.replace('.', ',');
+}
 
 exports.createUser = createUser;
 	
