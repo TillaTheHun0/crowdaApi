@@ -27,6 +27,7 @@
     "connect-flash": "^0.1.1",
     "express": "4.11.0",
     "express-session": "^1.11.3",
+    "firebase": "^2.3.1",
     "firebase-token-generator": "^2.0.0",
     "jade": "1.9.1",
     "morgan": "^1.6.1",
