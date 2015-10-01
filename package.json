@@ -1,6 +1,7 @@
 {
-  "name": "express_code_structure",
-  "version": "2.0.0",
+  "name": "CrowdaAPI",
+  "version": "0.0.1",
+  "main": "./app/server.js",
   "description": "Scaffolding explaining a method for organizing files in an express.js web application project",
   "scripts": {
     "test": "./bin/test.sh",
@@ -26,6 +27,7 @@
     "connect-flash": "^0.1.1",
     "express": "4.11.0",
     "express-session": "^1.11.3",
+    "firebase": "^2.3.1",
     "firebase-token-generator": "^2.0.0",
     "jade": "1.9.1",
     "passport": "^0.3.0",

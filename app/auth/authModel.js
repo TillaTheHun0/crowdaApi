@@ -9,7 +9,7 @@ passport.use(new LocalStrategy(
 	function(username, password, callback) {
 		//get user node from firebase based on username
 		ref.child(username).once('value', function(snapshot){
-			if(!snapshot){
+			if(!snapshot.val()){
 				return callback(null, false, {message: 'User does not exist'});
 			}
 			validPassword(password, snapshot.val().hash, function(err, valid){
