@@ -4,7 +4,8 @@ var passport = require('passport');
 
 var app = express();
 // set up our express application
-app.use(bodyParser()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true })); // get information from html forms
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.set("views", __dirname);
