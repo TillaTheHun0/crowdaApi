@@ -17,7 +17,7 @@ function login(req, res){
 }
 
 function signup(req, res){
-	auth.createUser(req.body.username, req.body.email, req.body.password, req.body.provider, 
+	auth.createUser(req.body.first, req.body.last, req.body.username, req.body.email, req.body.password, req.body.provider, 
 		function(error){
 			if(error){
 				console.log(error);

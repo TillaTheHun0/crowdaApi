@@ -26,7 +26,7 @@ passport.use(new LocalStrategy(
 	}
 ));
 
-function createUser(username, email, password, provider, next){
+function createUser(first, last, username, email, password, provider, next){
 	ref.child(username).once('value', function(snapshot){
 		if(snapshot.val()){//username taken
 			next({error: "Username already taken"});
@@ -39,7 +39,7 @@ function createUser(username, email, password, provider, next){
 				else{
 					generateHash(password, function(hash){
 						ref.child(username).set(
-							{hash: hash, provider: provider, email: email},
+							{first: first, last: last, hash: hash, provider: provider, email: email},
 							function(){//update email lookup
 								admin.child('email_lookup').child(escapeEmail(email)).set(username, next(null));	
 							}
