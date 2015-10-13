@@ -18,7 +18,7 @@ function getEvents(req, res){
 	});
 }
 
-router.get("/events", getEvents);
+router.get("/externalEvents", getEvents);
 
 module.exports = router;
 

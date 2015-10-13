@@ -1,4 +1,4 @@
-var baseRef = require("../config").firebase;
+var baseRef = require("../config").admin;
 
 var ref = baseRef.child("users");
 

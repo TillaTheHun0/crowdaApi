@@ -2,6 +2,7 @@ var config = module.exports;
 var PRODUCTION = process.env.NODE_ENV === "production";
 var Firebase = require('firebase');
 var admin = new Firebase("https://crowda.firebaseio.com/");
+var eventAdmin = new Firebase("https://crowda.firebaseio.com/Events");
 
 config.express = {
   port: process.env.EXPRESS_PORT || 3000,
@@ -21,8 +22,23 @@ admin.authWithCustomToken("IcLVcWUkQJqrmhr28FdoiBsjCew23LQ6Dn4WsSfQ", function(e
     console.log("authentication failed");
   }
 })
+
+//authenticate firebase eventAdmin
+
+function authHandler(error, authData) { 
+  if(error) {
+    console.log("authentification failed", error);
+  }  
+}
+
+eventAdmin.authWithPassword({
+  email : 'crowdaapp@gmail.com',
+  password: 'crowda'
+}, authHandler)
+
 //firebase base URL
-config.firebase = admin;
+config.admin = admin;
+config.eventAdmin = eventAdmin; 
 
 if (PRODUCTION) {
   //for example

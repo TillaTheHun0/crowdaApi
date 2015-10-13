@@ -1,4 +1,4 @@
-var admin = require("../config").firebase,
+var admin = require("../config").admin,
     passport = require("passport"),
 	LocalStrategy = require("passport-local").Strategy,
 	bcrypt = require("bcrypt");
