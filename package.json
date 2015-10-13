@@ -24,6 +24,7 @@
   "dependencies": {
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.0",
+    "braintree": "^1.29.0",
     "connect-flash": "^0.1.1",
     "express": "4.11.0",
     "express-session": "^1.11.3",
