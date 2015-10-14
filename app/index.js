@@ -24,6 +24,7 @@ app.use("/api", require("app/users/router"));
 app.use("/api", require("app/auth/router"));
 app.use("/api", require("app/events/router"));
 app.use("/api", require("app/externalEvents/router"));
+app.use("/api", require("app/payment/router"));
 // Repeat the above line for additional model areas ("deals", "vehicles", etc)
 
 //Error Handler must be last
