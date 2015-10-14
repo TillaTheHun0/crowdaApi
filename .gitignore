@@ -2,3 +2,5 @@
 secret.js
 node_modules
 node
+package.json
+npm-debug.log
