@@ -2,7 +2,7 @@ var router = require('express').Router(),
 	auth = require('./authModel'),
 	passport = require("passport"),
 	FirebaseTokenGenerator = require('firebase-token-generator'),
-	admin = require("../config").firebase;
+	admin = require("../config").admin;
 
 var ref = admin.child("users");
 var tokenGenerator = new FirebaseTokenGenerator("IcLVcWUkQJqrmhr28FdoiBsjCew23LQ6Dn4WsSfQ");
