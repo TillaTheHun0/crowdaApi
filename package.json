@@ -5,7 +5,7 @@
   "description": "Scaffolding explaining a method for organizing files in an express.js web application project",
   "scripts": {
     "test": "./bin/test.sh",
-    "start": "./app/server.js",
+    "start": "node ./app/server.js",
     "lint": "./bin/lint.sh"
   },
   "repository": {

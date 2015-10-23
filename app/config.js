@@ -5,7 +5,7 @@ var admin = new Firebase("https://crowda.firebaseio.com/");
 var eventAdmin = new Firebase("https://crowda.firebaseio.com/Events");
 
 config.express = {
-  port: process.env.EXPRESS_PORT || 3000,
+  port: process.env.PORT || 3000,
   ip: "127.0.0.1"
 };
 
