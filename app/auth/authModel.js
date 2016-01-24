@@ -41,10 +41,7 @@ function createUser(first, last, username, email, password, provider, next){
 						ref.child(username).set(
 							{first: first, last: last, hash: hash, provider: provider, email: email},
 							function(){//update email lookup
-								admin.child('email_lookup').child(escapeEmail(email)).set(username, 
-								function(){
-									admin.child('username_lookup').push({pic: "http://orig01.deviantart.net/e3dd/f/2010/093/5/e/icon___50x50__winry02_by_lekabr.gif", username: username}, next(null));
-								});	
+								admin.child('email_lookup').child(escapeEmail(email)).set(username);	
 							}
 						);
 					});
